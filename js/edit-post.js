@@ -66,4 +66,23 @@ function updateFormHandler(event) {
 // siusti 'patch' metodu atnaujinimus
 function sendPatchFetch(updatedPostObj) {
   console.log('sendPatchFetch ran ', updatedPostObj);
+  const updPostInJson = JSON.stringify(updatedPostObj);
+  fetch(`${url}/${postId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: updPostInJson,
+  })
+    .then((resp) => resp.json())
+    .then((ats) => {
+      console.log('ats === ', ats);
+      if (ats.id) {
+        // pavyko
+        if (confirm('irasas atnaujintas, eiti i home page?')) {
+          window.location.href = 'index.html';
+        }
+      } else {
+        console.log('nepavyko');
+      }
+    })
+    .catch(console.warn);
 }
