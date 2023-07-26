@@ -5,6 +5,7 @@ console.log('single-post.js file was loaded');
 
 const contentEl = document.getElementById('content');
 const delBtn = document.getElementById('delBtn');
+const editBtn = document.getElementById('editBtn');
 
 // gauti pId is url parametru
 
@@ -39,6 +40,10 @@ function renderPost(pObj) {
   const pLikes = crEl('p', { class: 'author' }, `Author: ${pObj.author}`);
   contentEl.append(title, pEl, tagTitle, ulEl, pLikes);
 }
+
+editBtn.addEventListener('click', () => {
+  window.location.href = `edit-post.html?postId=${postId}`;
+});
 
 delBtn.addEventListener('click', () => {
   console.log('delete', postId);

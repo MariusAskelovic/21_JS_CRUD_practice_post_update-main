@@ -7,7 +7,7 @@ const els = {
   postsContainer: document.getElementById('posts'),
   sortTitleBtn: document.getElementById('sort-title'),
 };
-console.log('els ===', els);
+// console.log('els ===', els);
 
 // Declarative way
 // Turesim viena pagrindini globalu masyva
@@ -25,7 +25,7 @@ function getPosts() {
   fetch(url)
     .then((resp) => resp.json())
     .then((atsObj) => {
-      console.log('atsObj ===', atsObj);
+      // console.log('atsObj ===', atsObj);
       mainPostArr = atsObj;
       render();
     })
@@ -35,9 +35,9 @@ function getPosts() {
 function render() {
   els.postsContainer.innerHTML = '';
   // spauzdindami gautime parsiustus duomenis
-  console.log('render fn mainPostArr ===', mainPostArr);
+  // console.log('render fn mainPostArr ===', mainPostArr);
   const htmlElArr = mainPostArr.map((pObj) => makeOnePostEl(pObj));
-  console.log('htmlElArr ===', htmlElArr);
+  // console.log('htmlElArr ===', htmlElArr);
   els.postsContainer.append(...htmlElArr);
   updatePostsCount();
 }
@@ -59,7 +59,7 @@ to
 */
 function makeOnePostEl(pObj) {
   const liEl = crEl('li', { class: 'post' });
-  const titleEl = crEl('h3', {}, `_${pObj.id}_ ${pObj.title}`);
+  const titleEl = crEl('h3', {}, pObj.title);
   const pEl = crEl('p', {}, pObj.body.slice(0, 25) + '...');
   const linkEl = crEl(
     'a',
@@ -72,7 +72,7 @@ function makeOnePostEl(pObj) {
 }
 
 function sortPostByTitle() {
-  console.log('sortPostByTitle ran');
+  // console.log('sortPostByTitle ran');
   // isrikiuoti
   mainPostArr.sort((aObj, bObj) => {
     // if (aObj.title < bObj.title) {
@@ -84,13 +84,13 @@ function sortPostByTitle() {
     // }
     return aObj.title.localeCompare(bObj.title);
   });
-  console.table(mainPostArr);
+  // console.table(mainPostArr);
   // perpiesti masyva po isrikiavimo
   render();
 }
 
 function updatePostsCount() {
   const postsCount = mainPostArr.length;
-  console.log('postsCount ===', postsCount);
+  // console.log('postsCount ===', postsCount);
   return postsCount;
 }
