@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add post</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/add-post.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Best<strong>Posts</strong></a>
+      <nav class="mainNav">
+        <a href="index.html" class="navLink">Home</a>
+        <a href="add-post.html" class="navLink">Add post</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Creat new post</h1>
+    <form id="newPost" class="new-post">
+      <div class="inputBlock">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+      </div>
+      <div class="inputBlock">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author">
+      </div>
+      <div class="inputBlock">
+        <label for="body">Body:</label>
+        <textarea id="body" name="body"></textarea>
+      </div>
+      <div class="inputBlock">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+      </div>
+      <div class="inputBlock">
+        <label for="tags">Tags:</label>
+        <input type="text" id="tags" name="tags" placeholder="Separate tags with commas">
+      </div>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+</body>
+
+</html>

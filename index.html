@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Best<strong>Posts</strong></a>
+      <nav class="mainNav">
+        <a href="index.html" class="navLink">Home</a>
+        <a href="add-post.html" class="navLink">Add post</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>CRUD - posts</h1>
+    <p class="posts-count">10 post loaded</p>
+    <button id="sort-title">sortByTitle a-z</button>
+    <ul id="posts" class="unlisted grid">
+      <li class="post">
+        <h3>title</h3>
+        <p>intro</p>
+        <a class="post-link" href="#">read more...</a>
+      </li>
+
+    </ul>
+  </div>
+</body>
+
+</html>

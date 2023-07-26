@@ -1,0 +1,65 @@
+@import 'common.css';
+
+.unlisted {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Header */
+
+header {
+  background-color: #333;
+  color: white;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLink {
+  padding: 0.8rem 1.2rem;
+  display: inline-block;
+}
+.navLink:hover {
+  background-color: #717171;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* POST */
+.post {
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius: 5px;
+}
+.post-link {
+  font-weight: bold;
+}
+
+.tag {
+  font-weight: bold;
+  padding-right: 10px;
+}
+.tags {
+  border-top: 1px solid #000;
+}
+
+/* new-post.html */
+
+.new-post {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+}
+
+.author {
+  font-style: italic;
+  font-size: 1.2rem;
+}
