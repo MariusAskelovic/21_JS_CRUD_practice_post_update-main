@@ -4,6 +4,10 @@ import { url } from './helper/config.js';
 console.log('app.js file was loaded');
 
 const postContainer = document.getElementById('container');
+const ulEl = document.getElementById('ulEl');
+const sortTitle = document.getElementById('sortTitleBtn');
+const sortAuthor = document.getElementById('sortAuthorBtn');
+const sortDate = document.getElementById('sortDateBtn');
 
 let mainPostArr = [];
 
@@ -20,16 +24,35 @@ function getPosts() {
 getPosts();
 
 function makeOnePost(postObj) {
-  const ulEl = crEl('ul', { id: 'ulEl' });
-  const title = crEl('li', { class: 'title' }, postObj.title);
-  const author = crEl('li', { class: 'author' }, postObj.author);
-  const date = crEl('li', { class: 'date' }, postObj.date);
-  ulEl.append(title, author, date);
-  return ulEl;
+  const liLink = crEl('a', { href: `single-post.html?${postObj.id}` });
+  const liEl = crEl('li', { id: 'liEl' });
+  const oneLi = `${postObj.title.slice(0, 10)} - ${postObj.author} | ${
+    postObj.date
+  }`;
+  liLink.append(oneLi);
+  liEl.append(liLink);
+  return liEl;
 }
 
 function render() {
+  ulEl.innerHTML = '';
   const newPostsArr = mainPostArr.map((pObj) => makeOnePost(pObj));
   console.log('newPostsArr ===', newPostsArr);
-  postContainer.append(...newPostsArr);
+  ulEl.append(...newPostsArr);
 }
+
+function sortPostsByAuthor() {
+  mainPostArr.sort((aObj, bObj) => aObj.author > bObj.author);
+  render();
+}
+sortAuthor.addEventListener('click', sortPostsByAuthor);
+function sortPostsByTitle() {
+  mainPostArr.sort((aObj, bObj) => aObj.title > bObj.title);
+  render();
+}
+sortTitle.addEventListener('click', sortPostsByTitle);
+function sortPostsByDate() {
+  mainPostArr.sort((aObj, bObj) => aObj.date > bObj.date);
+  render();
+}
+sortDate.addEventListener('click', sortPostsByDate);
