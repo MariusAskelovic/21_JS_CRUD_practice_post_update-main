@@ -45,9 +45,25 @@ function postObjToInputs(currentPostObj) {
 }
 
 // stebeti formos pateikima
-function updateFormHandler() {}
+els.form.addEventListener('submit', updateFormHandler);
+function updateFormHandler(event) {
+  event.preventDefault();
+  console.log('pateikiama forma');
+
+  const updatedPostData = {
+    title: els.title.value.trim(),
+    author: els.author.value.trim(),
+    date: els.date.value,
+    body: els.body.value.trim(),
+    tags: els.tags.value.split(',').map((tag) => tag.trim()),
+  };
+  console.log('updatedPostData ===', updatedPostData);
+  sendPatchFetch(updatedPostData);
+}
 
 // pateikiant forma surinkti inputus i objekta
 
 // siusti 'patch' metodu atnaujinimus
-function sendPatchFetch(updatedPostObj) {}
+function sendPatchFetch(updatedPostObj) {
+  console.log('sendPatchFetch ran ', updatedPostObj);
+}
